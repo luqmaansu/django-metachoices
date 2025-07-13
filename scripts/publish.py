@@ -142,17 +142,17 @@ def main():
         check_package()
         upload_package(test=test_upload)
 
-        print(f"✅ Successfully published version {new_version}!")
+        print(f"Successfully published version {new_version}!")
 
         if test_upload:
-            print("📦 Package uploaded to TestPyPI")
+            print("Package uploaded to TestPyPI")
             print(
-                f"🔗 View at: https://test.pypi.org/project/django-metachoices/{new_version}/"
+                f"View at: https://test.pypi.org/project/django-metachoices/{new_version}/"
             )
         else:
-            print("📦 Package uploaded to PyPI")
+            print("Package uploaded to PyPI")
             print(
-                f"🔗 View at: https://pypi.org/project/django-metachoices/{new_version}/"
+                f"View at: https://pypi.org/project/django-metachoices/{new_version}/"
             )
 
     except Exception as e:

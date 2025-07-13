@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-metachoices"
-version = "0.1.0"
+version = "0.1.2"
 description = "A Django field extension that allows choices to have rich metadata beyond the standard (value, display) tuple"
 readme = "README.md"
 license = "MIT"
@@ -40,6 +40,7 @@ dev = [
     "pytest-django>=4.5.0",
     "pytest-cov>=4.0",
     "ruff>=0.1.0",
+    "mypy>=1.0.0",
 ]
 test = [
     "pytest>=7.0",
@@ -54,10 +55,10 @@ Repository = "https://github.com/luqmaansu/django-metachoices"
 "Bug Tracker" = "https://github.com/luqmaansu/django-metachoices/issues"
 
 [tool.setuptools.packages.find]
-include = ["django_metachoices*"]
+include = ["metachoices*"]
 
 [tool.setuptools.package-data]
-django_metachoices = ["py.typed"]
+metachoices = ["py.typed"]
 
 [tool.pytest.ini_options]
 python_files = ["test_*.py", "*_test.py", "tests.py"]
@@ -68,14 +69,14 @@ addopts = [
     "--strict-markers",
     "--strict-config",
 ]
-testpaths = ["tests", "django_metachoices"]
+testpaths = ["tests", "metachoices"]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests as integration tests",
 ]
 
 [tool.coverage.run]
-source = ["django_metachoices"]
+source = ["metachoices"]
 omit = [
     "*/migrations/*",
     "*/tests/*",
@@ -129,7 +130,7 @@ ignore = [
 "tests/*" = ["B011"]  # Allow assert False in tests
 
 [tool.ruff.lint.isort]
-known-first-party = ["django_metachoices"]
+known-first-party = ["metachoices"]
 known-third-party = ["django"]
 section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
 

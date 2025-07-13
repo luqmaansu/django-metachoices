@@ -3,7 +3,7 @@
 from .fields import CharMetaChoiceField, IntegerMetaChoiceField, MetaChoiceField
 from .mixins import MetaChoiceMixin
 
-__version__ = "0.1.0"
+__version__ = "0.1.2"
 __author__ = "Your Name"
 __email__ = "your.email@example.com"
 
@@ -15,4 +15,4 @@ __all__ = [
 ]
 
 # Default Django app configuration
-default_app_config = "django_metachoices.apps.DjangoMetachoicesConfig"
+default_app_config = "metachoices.apps.MetachoicesConfig"

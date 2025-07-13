@@ -56,7 +56,7 @@ def task_clean():
 
 def task_check():
     """Run all checks (lint, format-check, test)."""
-    print("🔍 Running all checks...")
+    print("Running all checks...")
     success = True
     
     print("\n1. Linting...")
@@ -69,9 +69,9 @@ def task_check():
     success &= task_test()
     
     if success:
-        print("\n✅ All checks passed!")
+        print("\nAll checks passed!")
     else:
-        print("\n❌ Some checks failed!")
+        print("\nSome checks failed!")
     
     return success
 

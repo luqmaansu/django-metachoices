@@ -24,7 +24,7 @@ def pytest_configure():
             INSTALLED_APPS=[
                 "django.contrib.auth",
                 "django.contrib.contenttypes",
-                "django_metachoices",
+                "metachoices",
             ],
             SECRET_KEY="test-secret-key-for-django-metachoices",
             USE_TZ=True,

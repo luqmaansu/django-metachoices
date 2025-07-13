@@ -40,24 +40,20 @@ def main():
     if not run_command("pip install -e .[dev]", "Installing development dependencies"):
         return 1
 
-    # Run code formatting
-    if not run_command("black django_metachoices tests", "Formatting code with black"):
+    # Run code formatting and linting with ruff
+    if not run_command("ruff format metachoices tests", "Formatting code with ruff"):
         return 1
 
-    if not run_command("isort django_metachoices tests", "Sorting imports with isort"):
-        return 1
-
-    # Run linting
-    if not run_command("flake8 django_metachoices tests", "Linting with flake8"):
+    if not run_command("ruff check --fix metachoices tests", "Linting and fixing with ruff"):
         return 1
 
     # Run type checking
-    if not run_command("mypy django_metachoices", "Type checking with mypy"):
+    if not run_command("mypy metachoices", "Type checking with mypy"):
         return 1
 
     # Run tests
     if not run_command(
-        "pytest --cov=django_metachoices --cov-report=term-missing",
+        "pytest --cov=metachoices --cov-report=term-missing",
         "Running tests",
     ):
         return 1

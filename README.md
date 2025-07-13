@@ -43,7 +43,7 @@ print(user.get_status_display())      # The human-readable display value, "Activ
 
 ```python
 from django.db import models
-from django_metachoices import MetaChoiceField
+from metachoices import MetaChoiceField
 
 # Define choices with rich metadata
 STATUS_CHOICES = {
@@ -103,7 +103,7 @@ Add to your Django project's `INSTALLED_APPS`:
 ```python
 INSTALLED_APPS = [
     # ... other apps
-    'django_metachoices',
+    'metachoices',
 ]
 ```
 
@@ -111,6 +111,8 @@ INSTALLED_APPS = [
 
 - **Python**: 3.13+
 - **Django**: 5.2+
+
+
 
 
 ## Contributing

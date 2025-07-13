@@ -15,24 +15,16 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-REM Run code formatting
-echo Formatting code with black...
-black django_metachoices tests
+REM Run code formatting and linting with ruff
+echo Formatting code with ruff...
+ruff format metachoices tests
 if %errorlevel% neq 0 (
     echo Failed to format code
     exit /b 1
 )
 
-echo Sorting imports with isort...
-isort django_metachoices tests
-if %errorlevel% neq 0 (
-    echo Failed to sort imports
-    exit /b 1
-)
-
-REM Run linting
-echo Linting with flake8...
-flake8 django_metachoices tests
+echo Linting and fixing with ruff...
+ruff check --fix metachoices tests
 if %errorlevel% neq 0 (
     echo Failed linting
     exit /b 1
@@ -40,7 +32,7 @@ if %errorlevel% neq 0 (
 
 REM Run type checking
 echo Type checking with mypy...
-mypy django_metachoices
+mypy metachoices
 if %errorlevel% neq 0 (
     echo Failed type checking
     exit /b 1
@@ -48,7 +40,7 @@ if %errorlevel% neq 0 (
 
 REM Run tests
 echo Running tests...
-pytest --cov=django_metachoices --cov-report=term-missing
+pytest --cov=metachoices --cov-report=term-missing
 if %errorlevel% neq 0 (
     echo Failed tests
     exit /b 1

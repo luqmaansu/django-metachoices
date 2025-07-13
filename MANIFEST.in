@@ -4,14 +4,14 @@ include pyproject.toml
 include MANIFEST.in
 
 # Include the package README
-include django_metachoices/README.md
+include metachoices/README.md
 
 # Include package data
-recursive-include django_metachoices *.py
-recursive-include django_metachoices/migrations *.py
+recursive-include metachoices *.py
+recursive-include metachoices/migrations *.py
 
 # Include type hints
-include django_metachoices/py.typed
+include metachoices/py.typed
 
 # Exclude development and build artifacts
 global-exclude *.pyc

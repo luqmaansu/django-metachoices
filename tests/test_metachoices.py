@@ -4,8 +4,8 @@ import pytest
 from django import forms
 from django.db import models
 
-from django_metachoices import MetaChoiceField
-from django_metachoices.models import META_CHOICES, Storage
+from metachoices import MetaChoiceField
+from metachoices.models import META_CHOICES, Storage
 
 
 @pytest.mark.django_db
