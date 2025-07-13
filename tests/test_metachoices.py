@@ -103,7 +103,7 @@ def test_meta_choices_dynamic_attributes():
         choice_field = MetaChoiceField(choices=META_CHOICES)
 
         class Meta:
-            app_label = "django_metachoices"
+            app_label = "metachoices"
 
     # Check that getter methods exist
     test_instance = DynamicAttributesTestModel(choice_field="DB1")
@@ -129,7 +129,7 @@ def test_meta_choices_with_missing_attributes():
         choice_field = MetaChoiceField(choices=incomplete_choices)
 
         class Meta:
-            app_label = "django_metachoices"
+            app_label = "metachoices"
 
     # Test with choice that has all attributes
     test_a = MissingAttributesTestModel(choice_field="A")
@@ -160,7 +160,7 @@ def test_meta_choices_field_without_meta_choices():
         choice_field = MetaChoiceField(max_length=50)
 
         class Meta:
-            app_label = "django_metachoices"
+            app_label = "metachoices"
 
     test_instance = NoChoicesTestModel(choice_field="test")
     assert test_instance.choice_field == "test"
@@ -187,7 +187,7 @@ def test_meta_choices_custom_attributes():
         option = MetaChoiceField(choices=custom_choices)
 
         class Meta:
-            app_label = "django_metachoices"
+            app_label = "metachoices"
 
     test_instance = CustomTestModel(option="RED")
     assert test_instance.get_option_display() == "Red Color"
@@ -203,14 +203,14 @@ def test_meta_choices_field_inheritance():
         base_choice = MetaChoiceField(choices=META_CHOICES)
 
         class Meta:
-            app_label = "django_metachoices"
+            app_label = "metachoices"
             abstract = True
 
     class ChildModel(BaseModel):
         child_field = models.CharField(max_length=100)
 
         class Meta:
-            app_label = "django_metachoices"
+            app_label = "metachoices"
 
     child_instance = ChildModel(base_choice="DB1", child_field="test")
     assert child_instance.get_base_choice_display() == "Database 1"
@@ -252,7 +252,7 @@ def test_meta_choices_field_integer():
         choice = MetaChoiceField(choices=meta_choices, default=1)
 
         class Meta:
-            app_label = "django_metachoices"
+            app_label = "metachoices"
 
     # Test field creation and getter methods without database
     test_instance = IntegerMetaChoiceFieldTestModel(choice=2)

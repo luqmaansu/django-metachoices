@@ -26,7 +26,7 @@ STATUS_CHOICES = {
 
 class User(models.Model):
     name = models.CharField(max_length=100)
-    status = models.CharField(choices=STATUS_CHOICES)
+    status = models.CharField(choices=STATUS_CHOICES) # The normal CharField with choices
 
 
 # Usage
@@ -65,7 +65,7 @@ STATUS_CHOICES = {
 
 class User(models.Model):
     name = models.CharField(max_length=100)
-    status = MetaChoiceField(choices=STATUS_CHOICES)
+    status = MetaChoiceField(choices=STATUS_CHOICES) # Use MetaChoiceField with choices instead of CharField
 
 # Usage
 user = User.objects.create(name="John", status="ACTIVE")
@@ -111,6 +111,12 @@ INSTALLED_APPS = [
 
 - **Python**: 3.13+
 - **Django**: 5.2+
+
+
+
+
+
+
 
 
 

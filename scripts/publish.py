@@ -51,10 +51,11 @@ def bump_version(current_version, bump_type):
 
 def update_version_files(new_version):
     """Update version in pyproject.toml and __init__.py."""
-    # Update pyproject.toml
+    # Update pyproject.toml - be more specific to avoid matching ruff target-version
     pyproject_path = Path("pyproject.toml")
     content = pyproject_path.read_text()
-    content = re.sub(r'version = "[^"]+"', f'version = "{new_version}"', content)
+    # Only match the project version, not ruff target-version
+    content = re.sub(r'(\[project\][\s\S]*?)version = "[^"]+"', f'\\1version = "{new_version}"', content)
     pyproject_path.write_text(content)
 
     # Update __init__.py
