@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-metachoices"
-version = "0.1.5"
+version = "0.1.6"
 description = "A Django field extension that allows choices to have rich metadata beyond the standard (value, display) tuple"
 readme = "README.md"
 license = "MIT"

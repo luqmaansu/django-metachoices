@@ -100,19 +100,13 @@ pip install django-metachoices
 uv add django-metachoices
 ```
 
-Add to your Django project's `INSTALLED_APPS`:
-
-```python
-INSTALLED_APPS = [
-    # ... other apps
-    'metachoices',
-]
-```
+That's it! No need to add anything to `INSTALLED_APPS` - just import and use the field directly in your models.
 
 ## Requirements
 
 - **Python**: 3.10+
 - **Django**: 4.2+
+
 
 
 ## Compatibility
