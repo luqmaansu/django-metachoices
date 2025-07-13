@@ -58,7 +58,7 @@ def update_version_files(new_version):
     pyproject_path.write_text(content)
 
     # Update __init__.py
-    init_path = Path("django_metachoices/__init__.py")
+    init_path = Path("metachoices/__init__.py")
     content = init_path.read_text()
     content = re.sub(
         r'__version__ = "[^"]+"', f'__version__ = "{new_version}"', content

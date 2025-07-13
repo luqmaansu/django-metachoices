@@ -17,22 +17,22 @@ def run_command(cmd):
 
 def task_test():
     """Run tests with coverage."""
-    return run_command("pytest --cov=django_metachoices --cov-report=term-missing")
+    return run_command("pytest --cov=metachoices --cov-report=term-missing")
 
 
 def task_lint():
     """Run linting checks."""
-    return run_command("ruff check django_metachoices tests")
+    return run_command("ruff check metachoices tests")
 
 
 def task_format():
     """Format code."""
-    return run_command("ruff format django_metachoices tests")
+    return run_command("ruff format metachoices tests")
 
 
 def task_format_check():
     """Check code formatting."""
-    return run_command("ruff format --check django_metachoices tests")
+    return run_command("ruff format --check metachoices tests")
 
 
 def task_sync():

@@ -61,7 +61,7 @@ def update_readme_requirements(pyproject_data):
 
 def update_init_version(pyproject_data):
     """Update __init__.py version to match pyproject.toml."""
-    init_path = Path("django_metachoices/__init__.py")
+    init_path = Path("metachoices/__init__.py")
     content = init_path.read_text()
 
     version = pyproject_data["project"]["version"]
@@ -98,7 +98,7 @@ def validate_consistency():
     version = pyproject_data["project"]["version"]
 
     # Check __init__.py
-    init_path = Path("django_metachoices/__init__.py")
+    init_path = Path("metachoices/__init__.py")
     init_content = init_path.read_text()
     init_version_match = re.search(r'__version__ = "([^"]+)"', init_content)
 
