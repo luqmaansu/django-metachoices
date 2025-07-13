@@ -3,8 +3,8 @@
 [![PyPI version](https://badge.fury.io/py/django-metachoices.svg)](https://badge.fury.io/py/django-metachoices)
 [![Python versions](https://img.shields.io/pypi/pyversions/django-metachoices.svg)](https://pypi.org/project/django-metachoices/)
 [![Django versions](https://img.shields.io/pypi/djversions/django-metachoices.svg)](https://pypi.org/project/django-metachoices/)
-[![CI](https://github.com/yourusername/django-metachoices/workflows/CI/badge.svg)](https://github.com/yourusername/django-metachoices/actions)
-[![codecov](https://codecov.io/gh/yourusername/django-metachoices/branch/main/graph/badge.svg)](https://codecov.io/gh/yourusername/django-metachoices)
+[![CI](https://github.com/luqmaansu/django-metachoices/workflows/CI/badge.svg)](https://github.com/luqmaansu/django-metachoices/actions)
+[![codecov](https://codecov.io/gh/luqmaansu/django-metachoices/branch/main/graph/badge.svg)](https://codecov.io/gh/luqmaansu/django-metachoices)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Django field extension that allows choices to have rich metadata beyond the standard (value, display) tuple.

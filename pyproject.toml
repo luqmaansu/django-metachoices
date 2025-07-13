@@ -48,10 +48,10 @@ test = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/django-metachoices"
-Documentation = "https://github.com/yourusername/django-metachoices#readme"
-Repository = "https://github.com/yourusername/django-metachoices"
-"Bug Tracker" = "https://github.com/yourusername/django-metachoices/issues"
+Homepage = "https://github.com/luqmaansu/django-metachoices"
+Documentation = "https://github.com/luqmaansu/django-metachoices#readme"
+Repository = "https://github.com/luqmaansu/django-metachoices"
+"Bug Tracker" = "https://github.com/luqmaansu/django-metachoices/issues"
 
 [tool.setuptools.packages.find]
 include = ["django_metachoices*"]
