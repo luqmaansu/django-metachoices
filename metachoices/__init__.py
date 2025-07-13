@@ -3,7 +3,7 @@
 from .fields import CharMetaChoiceField, IntegerMetaChoiceField, MetaChoiceField
 from .mixins import MetaChoiceMixin
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 __author__ = "Luqmaan"
 __email__ = "luqmaansu@gmail.com"
 

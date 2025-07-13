@@ -114,6 +114,7 @@ INSTALLED_APPS = [
 - **Python**: 3.10+
 - **Django**: 4.2+
 
+
 ## Compatibility
 
 This package is tested with:
