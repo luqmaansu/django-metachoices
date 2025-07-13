@@ -96,6 +96,8 @@ Install from PyPI:
 
 ```bash
 pip install django-metachoices
+# or with UV (recommended)
+uv add django-metachoices
 ```
 
 Add to your Django project's `INSTALLED_APPS`:
@@ -109,19 +111,30 @@ INSTALLED_APPS = [
 
 ## Requirements
 
-- **Python**: 3.13+
-- **Django**: 5.2+
+- **Python**: 3.10+
+- **Django**: 4.2+
 
+## Compatibility
 
+This package is tested with:
+- **Python**: 3.10, 3.11, 3.12, 3.13
+- **Django**: 4.2 (LTS), 5.0, 5.1, 5.2
 
+For local testing across multiple versions, we recommend using `tox`:
 
+```bash
+# Install development dependencies
+uv add --group dev tox
 
+# Test specific combinations
+uv run tox -e py310-django42    # Python 3.10 + Django 4.2
+uv run tox -e py312-django51    # Python 3.12 + Django 5.1
+uv run tox -e py313-django52    # Python 3.13 + Django 5.2
 
-
-
-
-
-
+# Test with multiple Python versions (requires installing them first)
+uv python install 3.10 3.11 3.12 3.13
+uv run tox
+```
 
 ## Contributing
 
