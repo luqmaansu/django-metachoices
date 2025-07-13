@@ -5,7 +5,7 @@ from django import forms
 from django.db import models
 
 from django_metachoices import MetaChoiceField
-from django_metachoices.models import META_CHOICES, META_CHOICES_2, Storage
+from django_metachoices.models import META_CHOICES, Storage
 
 
 @pytest.mark.django_db
@@ -97,6 +97,7 @@ def test_meta_choices_field_validation():
 
 def test_meta_choices_dynamic_attributes():
     """Test that dynamic attributes are created correctly."""
+
     # Create a test model with meta choices
     class DynamicAttributesTestModel(models.Model):
         choice_field = MetaChoiceField(choices=META_CHOICES)
@@ -117,7 +118,11 @@ def test_meta_choices_with_missing_attributes():
     incomplete_choices = {
         "A": {"display": "Option A", "description": "Description A"},
         "B": {"display": "Option B"},  # Missing description
-        "C": {"display": "Option C", "description": "Description C", "extra": "Extra C"},
+        "C": {
+            "display": "Option C",
+            "description": "Description C",
+            "extra": "Extra C",
+        },
     }
 
     class MissingAttributesTestModel(models.Model):
@@ -193,7 +198,7 @@ def test_meta_choices_custom_attributes():
 
 def test_meta_choices_field_inheritance():
     """Test that MetaChoiceField works with model inheritance."""
-    
+
     class BaseModel(models.Model):
         base_choice = MetaChoiceField(choices=META_CHOICES)
 
@@ -209,7 +214,10 @@ def test_meta_choices_field_inheritance():
 
     child_instance = ChildModel(base_choice="DB1", child_field="test")
     assert child_instance.get_base_choice_display() == "Database 1"
-    assert child_instance.get_base_choice_description() == "Primary database for storing user data."
+    assert (
+        child_instance.get_base_choice_description()
+        == "Primary database for storing user data."
+    )
 
 
 def test_meta_choices_field_with_standard_django_options():
@@ -275,4 +283,4 @@ def test_meta_choices_2_with_form():
     if form.is_valid():
         instance = form.save(commit=False)
         assert instance.database == "DB2"
-        assert instance.count == 3 
+        assert instance.count == 3

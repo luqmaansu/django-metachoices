@@ -9,7 +9,7 @@ __email__ = "your.email@example.com"
 
 __all__ = [
     "MetaChoiceField",
-    "CharMetaChoiceField", 
+    "CharMetaChoiceField",
     "IntegerMetaChoiceField",
     "MetaChoiceMixin",
 ]

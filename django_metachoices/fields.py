@@ -10,7 +10,7 @@ class IntegerMetaChoiceField(MetaChoiceMixin, models.IntegerField):
         """Initialize the integer field with choices."""
         super().__init__(*args, **kwargs)
         # Ensure choices is never None
-        if not hasattr(self, 'choices') or self.choices is None:
+        if not hasattr(self, "choices") or self.choices is None:
             self.choices = []
 
     def formfield(self, **kwargs):
@@ -30,7 +30,7 @@ class CharMetaChoiceField(MetaChoiceMixin, models.CharField):
         kwargs.setdefault("max_length", 100)
         super().__init__(*args, **kwargs)
         # Ensure choices is never None
-        if not hasattr(self, 'choices') or self.choices is None:
+        if not hasattr(self, "choices") or self.choices is None:
             self.choices = []
 
 

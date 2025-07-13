@@ -1,1 +1,1 @@
-"""Tests package for django-metachoices.""" 
+"""Tests package for django-metachoices."""
