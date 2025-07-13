@@ -132,6 +132,10 @@ def main():
         # Update version files
         update_version_files(new_version)
 
+        # Sync metadata to ensure consistency
+        print("Syncing metadata...")
+        run_command("python scripts/sync_metadata.py")
+
         # Clean, build, check, and upload
         clean_build()
         build_package()

@@ -13,6 +13,74 @@ A Django field extension that allows choices to have rich metadata beyond the st
 
 Django's standard choice fields only support a simple key-value mapping. This package extends that functionality to allow arbitrary metadata for each choice, which can be accessed through dynamically generated getter methods.
 
+## Example
+
+### Without metachoices
+
+```python
+
+STATUS_CHOICES = {
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+}
+
+class User(models.Model):
+    name = models.CharField(max_length=100)
+    status = models.CharField(choices=STATUS_CHOICES)
+
+
+# Usage
+user = User.objects.create(name="John", status="ACTIVE")
+
+# Access choice data as usual
+print(user.status)                    # The database stored value, "ACTIVE"
+print(user.get_status_display())      # The human-readable display value, "Active"
+
+```
+
+
+### With metachoices
+
+```python
+from django.db import models
+from django_metachoices import MetaChoiceField
+
+# Define choices with rich metadata
+STATUS_CHOICES = {
+    "ACTIVE": {
+        "display": "Active",
+        "color": "#28a745",
+        "description": "User is active and can access the system",
+        "icon": "check-circle",
+        "priority": 1,
+    },
+    "INACTIVE": {
+        "display": "Inactive", 
+        "color": "#6c757d",
+        "description": "User is inactive and cannot access the system",
+        "icon": "x-circle",
+        "priority": 2,
+    },
+}
+
+class User(models.Model):
+    name = models.CharField(max_length=100)
+    status = MetaChoiceField(choices=STATUS_CHOICES)
+
+# Usage
+user = User.objects.create(name="John", status="ACTIVE")
+
+# Access choice data as usual
+print(user.status)                    # The database stored value, "ACTIVE"
+print(user.get_status_display())      # The human-readable display value, "Active"
+
+# With richer capabilities!
+print(user.get_status_color())        # "#28a745"
+print(user.get_status_description())  # "User is active and can access the system"
+print(user.get_status_icon())         # "check-circle"
+print(user.get_status_priority())     # 1
+```
+
 ## Features
 
 - **Rich Metadata**: Add any number of attributes to your choices (description, url, icon, priority, etc.)
@@ -39,56 +107,11 @@ INSTALLED_APPS = [
 ]
 ```
 
-## Quick Start
-
-```python
-from django.db import models
-from django_metachoices import MetaChoiceField
-
-# Define choices with rich metadata
-STATUS_CHOICES = {
-    "ACTIVE": {
-        "display": "Active",
-        "color": "#28a745",
-        "description": "User is active and can access the system",
-        "icon": "check-circle",
-        "priority": 1,
-    },
-    "INACTIVE": {
-        "display": "Inactive", 
-        "color": "#6c757d",
-        "description": "User is inactive and cannot access the system",
-        "icon": "x-circle",
-        "priority": 2,
-    },
-    "SUSPENDED": {
-        "display": "Suspended",
-        "color": "#dc3545", 
-        "description": "User is temporarily suspended",
-        "icon": "pause-circle",
-        "priority": 3,
-    }
-}
-
-class User(models.Model):
-    name = models.CharField(max_length=100)
-    status = MetaChoiceField(choices=STATUS_CHOICES)
-
-# Usage
-user = User.objects.create(name="John", status="ACTIVE")
-
-# Access metadata through dynamic getters
-print(user.get_status_display())      # "Active"
-print(user.get_status_color())        # "#28a745"
-print(user.get_status_description())  # "User is active and can access the system"
-print(user.get_status_icon())         # "check-circle"
-print(user.get_status_priority())     # 1
-```
-
 ## Requirements
 
-- **Python**: 3.8+
-- **Django**: 3.2, 4.0, 4.1, 4.2, 5.0
+- **Python**: 3.13+
+- **Django**: 5.2+
+
 
 ## Contributing
 
